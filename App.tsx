@@ -5,13 +5,15 @@ import {
   ViewTextStyles,
   UsingState,
   TextInputs,
-  ListsAndScrollView
+  ListsAndScrollView,
+  FlatListTouchableComponent,
+  ToDo
 } from './assets/pages';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ListsAndScrollView />
+      <ToDo />
     </View>
   );
 }
@@ -19,8 +21,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
     // alignItems: 'center',
-    justifyContent: 'center'
+    // justifyContent: 'center'
   }
 });
