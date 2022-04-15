@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
 
 const TextInputs = () => {
   const [nickname, setNickname] = useState<string>('Charlie');
   const [age, setAge] = useState<number>(30);
   return (
-    <>
+    <View style={styles.container}>
       <Text>Enter Name: </Text>
       <TextInput
         multiline
@@ -23,13 +23,18 @@ const TextInputs = () => {
       <Text>
         Name: {nickname}, Age: {age}
       </Text>
-    </>
+    </View>
   );
 };
 
 export default TextInputs;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   input: {
     borderWidth: 1,
     borderColor: '#777',

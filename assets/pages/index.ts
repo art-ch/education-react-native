@@ -4,6 +4,7 @@ import TextInputs from './TextInputs';
 import ListsAndScrollView from './ListsAndScrollView';
 import FlatListTouchableComponent from './FlatListTouchableComponent';
 import ToDo from './ToDo';
+import FlexboxPlayground from './FlexboxPlayground';
 
 export {
   UsingState,
@@ -11,5 +12,6 @@ export {
   TextInputs,
   ListsAndScrollView,
   FlatListTouchableComponent,
-  ToDo
+  ToDo,
+  FlexboxPlayground
 };

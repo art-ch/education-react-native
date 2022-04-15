@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from 'react-native';
 
 const ViewTextStyles = () => (
-  <>
+  <View style={styles.container}>
     <View style={styles.header}>
       <Text style={styles.boldText}>Hello World!</Text>
     </View>
@@ -12,12 +12,17 @@ const ViewTextStyles = () => (
       <Text>Lorem ipsum dolor sit amet.</Text>
       <Text>Lorem ipsum dolor sit amet.</Text>
     </View>
-  </>
+  </View>
 );
 
 export default ViewTextStyles;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   header: {
     backgroundColor: 'pink',
     padding: 20

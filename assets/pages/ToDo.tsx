@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
+} from 'react-native';
 
 import { Header, AddTodo, TodoItem } from '../components/Todo';
 
@@ -18,38 +25,51 @@ const ToDo = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id != id));
 
   const submitHandler = (text: string) => {
-    setTodos((prevTodos) => [
-      { id: Math.random().toString(), text },
-      ...prevTodos
-    ]);
+    if (text.length > 3) {
+      setTodos((prevTodos) => [
+        { id: Math.random().toString(), text },
+        ...prevTodos
+      ]);
+    } else {
+      Alert.alert('OOPS', 'Todos must be over 3 characters long', [
+        { text: 'Understood', onPress: () => {} }
+      ]);
+    }
   };
 
   return (
-    <>
-      <Header />
-      <View style={styles.content}>
-        <AddTodo submitHandler={submitHandler} />
-        <View style={styles.list}>
-          <FlatList
-            keyExtractor={({ id }) => id}
-            data={todos}
-            renderItem={({ item }) => (
-              <TodoItem item={item} pressHandler={pressHandler} />
-            )}
-          />
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          <AddTodo submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <FlatList
+              keyExtractor={({ id }) => id}
+              data={todos}
+              renderItem={({ item }) => (
+                <TodoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
+          </View>
         </View>
       </View>
-    </>
+    </TouchableWithoutFeedback>
   );
 };
 
 export default ToDo;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   content: {
+    flex: 1,
     padding: 40
   },
   list: {
-    marginTop: 20
+    marginTop: 20,
+    flex: 1
   }
 });

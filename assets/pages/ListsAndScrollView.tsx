@@ -45,7 +45,7 @@ const ListsAndScrollView = () => {
     }
   ]);
   return (
-    <>
+    <View style={styles.container}>
       <ScrollView>
         {people.map((person) => {
           return (
@@ -55,13 +55,18 @@ const ListsAndScrollView = () => {
           );
         })}
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 export default ListsAndScrollView;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   item: {
     marginTop: 24,
     padding: 30,

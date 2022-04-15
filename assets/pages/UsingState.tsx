@@ -17,7 +17,7 @@ const UsingState = () => {
   };
 
   return (
-    <>
+    <View style={styles.container}>
       <Text>My name is {nickname}</Text>
       <Text>
         His name is {user.nickname} and his age is {user.age}
@@ -25,13 +25,18 @@ const UsingState = () => {
       <View style={styles.buttonContainer}>
         <Button title="Update Status" onPress={clickHandler} />
       </View>
-    </>
+    </View>
   );
 };
 
 export default UsingState;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   buttonContainer: {
     marginTop: 20
   }
