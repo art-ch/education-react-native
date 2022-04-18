@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 
+import globalStyles from '../styles/global';
+
 const TextInputs = () => {
   const [nickname, setNickname] = useState<string>('Charlie');
   const [age, setAge] = useState<number>(30);
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.tutorialBox}>
       <Text>Enter Name: </Text>
       <TextInput
         multiline
@@ -30,11 +32,6 @@ const TextInputs = () => {
 export default TextInputs;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   input: {
     borderWidth: 1,
     borderColor: '#777',

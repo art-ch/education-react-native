@@ -1,7 +1,9 @@
 import { StyleSheet, View, Text } from 'react-native';
 
+import globalStyles from '../styles/global';
+
 const ViewTextStyles = () => (
-  <View style={styles.container}>
+  <View style={globalStyles.tutorialBox}>
     <View style={styles.header}>
       <Text style={styles.boldText}>Hello World!</Text>
     </View>
@@ -18,11 +20,6 @@ const ViewTextStyles = () => (
 export default ViewTextStyles;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   header: {
     backgroundColor: 'pink',
     padding: 20

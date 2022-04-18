@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { StyleSheet, ScrollView, View, Text } from 'react-native';
 
+import globalStyles from '../styles/global';
+
 const ListsAndScrollView = () => {
   const [people, setPeople] = useState([
     {
@@ -45,7 +47,7 @@ const ListsAndScrollView = () => {
     }
   ]);
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.tutorialBox}>
       <ScrollView>
         {people.map((person) => {
           return (
@@ -62,11 +64,6 @@ const ListsAndScrollView = () => {
 export default ListsAndScrollView;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   item: {
     marginTop: 24,
     padding: 30,

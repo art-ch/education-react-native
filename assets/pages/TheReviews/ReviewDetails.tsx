@@ -1,17 +1,18 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
-const ReviewDetails = () => {
+import globalStyles from '../../styles/global';
+
+const ReviewDetails = ({ route: { params } }: any) => {
+  const { title, rating, synopsis } = params;
   return (
-    <View style={styles.container}>
-      <Text>ReviewDetails</Text>
+    <View style={globalStyles.container}>
+      <Text>{title}</Text>
+      <Text>{rating}</Text>
+      <Text>{synopsis}</Text>
     </View>
   );
 };
 
 export default ReviewDetails;
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 24
-  }
-});
+const styles = StyleSheet.create({});

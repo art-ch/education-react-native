@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
+import globalStyles from '../styles/global';
+
 type User = { nickname: string; age: number };
 
 const UsingState = () => {
@@ -17,7 +19,7 @@ const UsingState = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.tutorialBox}>
       <Text>My name is {nickname}</Text>
       <Text>
         His name is {user.nickname} and his age is {user.age}
@@ -32,11 +34,6 @@ const UsingState = () => {
 export default UsingState;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   buttonContainer: {
     marginTop: 20
   }
