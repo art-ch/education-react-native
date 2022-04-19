@@ -6,7 +6,7 @@ import FlatListTouchableComponent from './FlatListTouchableComponent';
 import ToDo from './ToDo';
 import FlexboxPlayground from './FlexboxPlayground';
 
-export {
+export default [
   UsingState,
   ViewTextStyles,
   TextInputs,
@@ -14,4 +14,4 @@ export {
   FlatListTouchableComponent,
   ToDo,
   FlexboxPlayground
-};
+];

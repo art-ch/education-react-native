@@ -1,33 +1,41 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import {
-  ViewTextStyles,
-  UsingState,
-  TextInputs,
-  ListsAndScrollView,
-  FlatListTouchableComponent,
-  ToDo,
-  FlexboxPlayground
-} from '../pages';
+  createDrawerNavigator,
+  DrawerContentScrollView
+} from '@react-navigation/drawer';
+
+import TutorialPages from '../pages';
 import { Home, About } from '../pages/TheReviews';
 import HomeStack from './HomeStack';
 
 const Drawer = createDrawerNavigator();
 
 const RootDrawerNavigator = () => {
+  const refineString = (string: string) =>
+    string.replace(/([a-z])([A-Z])/g, '$1 $2');
+
   return (
     /* @ts-expect-error */
-    <Drawer.Navigator>
+    <Drawer.Navigator useLegacyImplementation={true}>
       <Drawer.Screen
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={HomeStack}
         options={{
-          title: 'Home',
-          headerStyle: {
-            backgroundColor: '#82C9A9'
-          }
+          headerShown: false
         }}
       />
+      {TutorialPages.map((page, id) => (
+        <Drawer.Screen
+          key={id}
+          name={refineString(page.name)}
+          component={page}
+          options={{
+            headerStyle: {
+              backgroundColor: page.name === 'ToDo' ? '#540b0e' : undefined
+            },
+            headerTintColor: page.name === 'ToDo' ? 'white' : 'black'
+          }}
+        />
+      ))}
       <Drawer.Screen
         name="About"
         component={About}

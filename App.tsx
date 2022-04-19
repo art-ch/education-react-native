@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 
 import AppLoading from 'expo-app-loading';
@@ -8,18 +7,7 @@ import {
   Nunito_700Bold
 } from '@expo-google-fonts/nunito';
 
-import {
-  ViewTextStyles,
-  UsingState,
-  TextInputs,
-  ListsAndScrollView,
-  FlatListTouchableComponent,
-  ToDo,
-  FlexboxPlayground
-} from './assets/pages';
-
-import { Home, About, ReviewDetails } from './assets/pages/TheReviews';
-import Navigator from './assets/routes/HomeStack';
+import Navigator from './assets/routes/RootDrawerNavigator';
 
 const App = () => {
   let [fontsLoaded] = useFonts({

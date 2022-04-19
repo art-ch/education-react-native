@@ -8,7 +8,7 @@ import {
   Keyboard
 } from 'react-native';
 
-import { Header, AddTodo, TodoItem } from '../components/Todo';
+import { AddTodo, TodoItem } from '../components/Todo';
 
 export type TodoItemSchema = { id: string; text: string };
 
@@ -40,7 +40,6 @@ const ToDo = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        <Header />
         <View style={styles.content}>
           <AddTodo submitHandler={submitHandler} />
           <View style={styles.list}>
