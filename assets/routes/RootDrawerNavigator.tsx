@@ -1,10 +1,7 @@
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView
-} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import TutorialPages from '../pages';
-import { Home, About } from '../pages/TheReviews';
+import { About } from '../pages/TheReviews';
 import HomeStack from './HomeStack';
 
 const Drawer = createDrawerNavigator();
@@ -17,7 +14,7 @@ const RootDrawerNavigator = () => {
     /* @ts-expect-error */
     <Drawer.Navigator useLegacyImplementation={true}>
       <Drawer.Screen
-        name="HomeStack"
+        name="Home"
         component={HomeStack}
         options={{
           headerShown: false

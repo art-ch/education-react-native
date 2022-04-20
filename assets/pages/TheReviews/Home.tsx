@@ -2,12 +2,13 @@ import { useState } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
   FlatList,
   Modal,
   View,
   ImageBackground,
-  Text,
-  Button
+  Text
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -49,6 +50,14 @@ const Home = ({ navigation }: any) => {
     }
   ]);
 
+  const addReview = (review: any) => {
+    review.key = new Date().getTime().toString();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+    });
+    setModalOpen(false);
+  };
+
   return (
     /* @ts-expect-error */
     <ImageBackground
@@ -57,19 +66,21 @@ const Home = ({ navigation }: any) => {
       blurRadius={10}
     >
       <Modal visible={modalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          {/* @ts-expect-error */}
-          <MaterialIcons
-            name="close"
-            size={24}
-            style={styles.modalToggle}
-            onPress={() => setModalOpen(false)}
-          />
-          <Text style={{ ...globalStyles.titleText, ...styles.homeTitle }}>
-            Create New Entry
-          </Text>
-          <NewEntryForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            {/* @ts-expect-error */}
+            <MaterialIcons
+              name="close"
+              size={24}
+              style={styles.modalToggle}
+              onPress={() => setModalOpen(false)}
+            />
+            <Text style={{ ...globalStyles.titleText, ...styles.homeTitle }}>
+              Create New Entry
+            </Text>
+            <NewEntryForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
       <Text style={{ ...globalStyles.titleText, ...styles.homeTitle }}>
         The Reviews

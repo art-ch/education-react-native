@@ -9,7 +9,7 @@ const HomeStack = () => {
     /* @ts-expect-error */
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="HomeStack"
         component={Home}
         options={({ navigation }) => ({
           headerTitle: () => <Header navigation={navigation} />,
